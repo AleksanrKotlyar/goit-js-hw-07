@@ -40,16 +40,20 @@ function onClickImgCreateModal(e) {
     </div>
 `);
 
-	instance.show();
-
-	if (instance.show()) {
+	instance.show(() => {
 		window.addEventListener("keydown", onEscPress);
-	}
+		window.addEventListener("click", onEscPress);
+	});
 
 	function onEscPress(evt) {
 		if (evt.code === "Escape") {
 			instance.close(() => {
 				window.removeEventListener("keydown", onEscPress);
+			});
+		} else {
+			instance.close(() => {
+				window.removeEventListener("keydown", onEscPress);
+				window.removeEventListener("click", onEscPress);
 			});
 		}
 	}
