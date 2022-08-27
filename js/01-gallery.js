@@ -55,5 +55,6 @@ function onClickImgCreateModal(e) {
 }
 
 galleryRef.addEventListener("click", onClickImgCreateModal);
+window.removeEventListener("keydown", onEscPress);
 
 console.log(galleryItems);
