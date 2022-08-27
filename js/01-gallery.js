@@ -49,7 +49,6 @@ function onClickImgCreateModal(e) {
 	function onEscPress(evt) {
 		if (evt.code === "Escape") {
 			instance.close(() => {
-				console.log("lightbox not visible anymore");
 				window.removeEventListener("keydown", onEscPress);
 			});
 		}
