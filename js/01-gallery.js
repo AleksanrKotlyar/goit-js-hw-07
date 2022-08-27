@@ -48,13 +48,14 @@ function onClickImgCreateModal(e) {
 
 	function onEscPress(evt) {
 		if (evt.code === "Escape") {
-			instance.close();
-			window.removeEventListener("keydown", onEscPress);
+			instance.close(() => {
+				console.log("lightbox not visible anymore");
+				window.removeEventListener("keydown", onEscPress);
+			});
 		}
 	}
 }
 
 galleryRef.addEventListener("click", onClickImgCreateModal);
-window.removeEventListener("keydown", onEscPress);
 
 console.log(galleryItems);
